@@ -114,27 +114,27 @@ JSON — Storing RL feedback data.
 Google Gemini 2.5 Flash — For reasoning, generation, image understanding, routing, OCR-like extraction, and persona responses.
 
 4. Document & Image Processing
-PyPDFLoader — PDF extraction
-Docx2txtLoader — DOCX extraction
-TextLoader — TXT ingestion
-UnstructuredPowerPointLoader — PPTX extraction
-Base64 Image Encoding — For sending images to Gemini
-Vision capabilities of Gemini — For diagram + text extraction from images
+PyPDFLoader : PDF extraction
+Docx2txtLoader :DOCX extraction
+TextLoader :TXT ingestion
+UnstructuredPowerPointLoader : PPTX extraction
+Base64 Image Encoding : For sending images to Gemini
+Vision capabilities of Gemini : For diagram + text extraction from images
 
 5. Search & Retrieval
-FAISS Vector Store — Document chunk storage and similarity retrieval
-HuggingFace Embeddings Model: all-MiniLM-L6-v2 — Creating vector embeddings
-DuckDuckGo Search Tool — Web search integration for external knowledge
+FAISS Vector Store : Document chunk storage and similarity retrieval
+HuggingFace Embeddings Model-all-MiniLM-L6-v2 : Creating vector embeddings
+DuckDuckGo Search Tool :Web search integration for external knowledge
 
 6. Agent Logic
-LangChain Tools — For search, calculations, and routing
-Classification Chain — Intent categorization
-Sentiment Chain — Emotional tone detection
-Custom Router — For deciding Retrieval vs Web Search vs Calculation
-Feedback Learning — Reinforcement-like improvement using rl_good_examples.json
+LangChain Tools : For search, calculations, and routing
+Classification Chain : Intent categorization
+Sentiment Chain : Emotional tone detection
+Custom Router : For deciding Retrieval vs Web Search vs Calculation
+Feedback Learning : Reinforcement-like improvement using rl_good_examples.json
 
 7. UI/Frontend
-Gradio ChatInterface & Blocks — Interactive chat, file upload area, feedback buttons, mode selection..
+Gradio ChatInterface & Blocks : Interactive chat, file upload area, feedback buttons, mode selection..
 
 **Future improvements**
 
