@@ -96,22 +96,22 @@ The Orchestrator may call tools such as summarization, question generation, expl
 The LLM combines retrieved text, processed images, and tool outputs to generate a coherent and grounded final answer.
 
 7. Output Delivery
-The final response—summary, explanation, Q&A set, or study notes—is delivered to the user, with context preserved for follow-up questions.
+The final response summary, explanation, Q&A set, or study notes—is delivered to the user, with context preserved for follow-up questions.
 
 **Tech stack**
 1. Programming Language
-Python — Core development language for backend logic, integrations, and agent orchestration.
+Python :Core development language for backend logic, integrations, and agent orchestration.
 
 2. Frameworks & Libraries
-Gradio — Interactive UI for chatting, file uploads, and agent interaction.
-LangChain — Agent workflow, tools, prompts, routing, and RAG pipeline.
-SentenceTransformers (HuggingFace) — Embeddings for vector search.
-FAISS — Fast similarity search and vector storage.
-dotenv — Secure environment variable management.
-JSON — Storing RL feedback data.
+Gradio : Interactive UI for chatting, file uploads, and agent interaction.
+LangChain : Agent workflow, tools, prompts, routing, and RAG pipeline.
+SentenceTransformers (HuggingFace) :Embeddings for vector search.
+FAISS :Fast similarity search and vector storage.
+dotenv : Secure environment variable management(invoking API).
+
 
 3. Language Model
-Google Gemini 2.5 Flash — For reasoning, generation, image understanding, routing, OCR-like extraction, and persona responses.
+Google Gemini 2.5 Flash : For reasoning, generation, image understanding, routing, OCR-like extraction, and persona responses.
 
 4. Document & Image Processing
 PyPDFLoader : PDF extraction
