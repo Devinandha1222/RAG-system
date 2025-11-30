@@ -21,60 +21,7 @@ reinforcement-learning–based user feedback improvement
 
 The goal is to create a robust, context-aware study assistant capable of answering queries derived from both textual and visual academic resources.
 
- **Why agents?** 
-
-Agents are the right solution for this problem because the project requires intelligent decision making, multimodal processing, and tool orchestration. Students ask many different types of questions, and an agent can classify intent, select the correct tool (document retrieval, image analysis, web search, calculator), and generate accurate context-aware answers. Agents provide modularity, adaptability, persona switching, sentiment-based responses, and continuous learning, making them the ideal architecture for building a flexible multimodal study assistant.
-
-A normal LLM is insufficient for this project because it cannot read documents, analyze images, perform web search, run tools, retrieve vector-store data, classify user intent, switch personas, adapt to sentiment, or learn from feedback. An agent-based system is required to orchestrate tools, route tasks intelligently, and deliver multimodal academic assistance, which a stand-alone LLM simply cannot achieve.
-
-**Architecture**
-
-The project implements a Multi-Modal Study Agent, built on top of a RAG pipeline and extended using agentic orchestration. The system combines documents, images, tool-using agents, and a central orchestrator to deliver personalized study assistance.
-
-1. The user interacts with the system through:
-Chat UI
-Upload interface for PDFs, text files, images and other documents
-This layer sends all requests to the Orchestrator Agent.
-2. Orchestrator 
-Interprets user intent
-Decides whether to call document RAG, image analysis, or other tools
-Coordinates multiple sub-agents
-Collects all partial outputs
-Produces a single, blended final answer
-
-The orchestrator uses:
-LLM reasoning
-Tool selection logic
-Routing capabilities
-
-3.Document Processing Pipeline (Text RAG Agent)
-Handles all uploaded documents.
-Components:
-Text Extractor (PDF loader / OCR if needed)
-Text Splitter (Recursive splitting for long content)
-Embeddings Generator (HuggingFace/OpenAI embeddings)
-Vector Store (e.g., FAISS)
-Retriever (top-k similarity search)
-
-4.Image Analysis Pipeline (Vision Agent)
-Handles:
-Diagrams
-Charts
-Graphs
-Images of handwritten notes
-Components:
-Vision model (Gemini Vision, GPT-4o mini, etc.)
-Image-to-text interpretation
-OCR layer
-
-5.Storage Layer
-Stores:
-Vector embeddings
-Uploaded documents
-Parsed text
-Extracted images/content
-Metadata such as filenames, topics, keywords
-
+ 
 **Workflow**
 
 1. Input Collection
