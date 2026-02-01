@@ -67,7 +67,7 @@ def save_feedback(query, category, feedback_type):
         data.append(new_entry)
         with open(RL_DATA_FILE, "w") as f:
             json.dump(data, f)
-        print(f"🧠 RL Update: Learned strategy for '{query}'")
+        print(f" RL Update: Learned strategy for '{query}'")
 
 
 def describe_image_with_gemini(image_path):
@@ -85,7 +85,7 @@ def describe_image_with_gemini(image_path):
 
 def process_files(files):
     global vector_store
-    if not files: return "⚠️ No files uploaded."
+    if not files: return " No files uploaded."
     documents = []
     status_log = []
     
@@ -100,10 +100,10 @@ def process_files(files):
             elif lower_name.endswith(('.jpg', '.png')):
                 desc = describe_image_with_gemini(file_path)
                 if desc: documents.append(Document(page_content=desc, metadata={"source": filename}))
-            status_log.append(f"✅ Loaded: {filename}")
-        except Exception as e: status_log.append(f"❌ Error {filename}: {str(e)}")
+            status_log.append(f" Loaded: {filename}")
+        except Exception as e: status_log.append(f" Error {filename}: {str(e)}")
 
-    if not documents: return "\n".join(status_log) + "\n\n⚠️ No valid text."
+    if not documents: return "\n".join(status_log) + "\n\n No valid text."
 
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
     chunks = splitter.split_documents(documents)
@@ -239,8 +239,8 @@ def sequential_chat_logic(message, history, mode_selection):
             "persona_instruction": persona
         })
         
-        emoji_map = {"Retrieval_Required": "📄", "Web_Search": "🌐", "Calculation": "🧮", "Chit_Chat": "💬"}
-        icon = emoji_map.get(final_category, "🤖")
+        emoji_map = {"Retrieval_Required":  "Web_Search":  "Calculation":  "Chit_Chat"}
+        icon = emoji_map.get(final_category)
         
         debug_msg = f"\n\n---\n* {sentiment_info} | Action: {icon} {final_category} | Mode: {mode_selection}*"
         
@@ -251,7 +251,7 @@ def sequential_chat_logic(message, history, mode_selection):
 # --- 7. Feedback Handler ---
 def on_feedback_vote(data: gr.LikeData):
     if data.liked:
-        print(f"👍 User liked: {current_interaction_state['query']}")
+        print(f" User liked: {current_interaction_state['query']}")
         save_feedback(current_interaction_state["query"], current_interaction_state["category"], "like")
 
 # --- 8. UI Setup ---
@@ -268,7 +268,7 @@ with gr.Blocks(theme=gr.themes.Soft(), title="Dual-Mode Agent") as demo:
                 info="Choose 'Roast Master' if you want me to judge your documents."
             )
             
-            file_input = gr.File(label="📂 Upload Files", file_count="multiple", type="filepath")
+            file_input = gr.File(label=" Upload Files", file_count="multiple", type="filepath")
             process_btn = gr.Button("Process Files", variant="primary")
             status = gr.Textbox(label="Status", interactive=False, lines=3)
             process_btn.click(process_files, file_input, status)
@@ -282,4 +282,5 @@ with gr.Blocks(theme=gr.themes.Soft(), title="Dual-Mode Agent") as demo:
             chatbot.chatbot.like(on_feedback_vote, None, None)
 
 if __name__ == "__main__":
+
     demo.launch()
